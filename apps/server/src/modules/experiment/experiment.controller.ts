@@ -35,6 +35,21 @@ class ExperimentController {
             return res.status(500).send(error);
         }
     }
+
+        public static async translateWithPromptTemplates(req: Request, res: Response): Promise<Response> {
+        try {
+            const { message, sourceLanguage, targetLanguage } = req.body;
+            if (!message || !sourceLanguage || !targetLanguage) {
+                return res.status(400).json({ error: 'message, sourceLanguage, targetLanguage are required' });
+            }
+
+            const response = await ExperimentService.translateWithPromptTemplate(message, sourceLanguage, targetLanguage);
+
+            return res.status(200).json(response);
+        } catch (error) {
+            return res.status(500).send(error);
+        }
+    }
 }
 
 export default ExperimentController;
