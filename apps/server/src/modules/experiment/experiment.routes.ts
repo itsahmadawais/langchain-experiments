@@ -4,5 +4,6 @@ import ExperimentController from './experiment.controller';
 const router = Router();
 
 router.post('/translate', ExperimentController.translator);
+router.post('/translate/stream', ExperimentController.streamTranslator);
 
 export default router;
