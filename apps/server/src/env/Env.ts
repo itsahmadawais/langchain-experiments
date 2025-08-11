@@ -9,6 +9,10 @@ const Env = defineEnvSchema({
     PORT: {
         type: 'number',
         default: 3000,
+    },
+    OPENAI_API_KEY: {
+        type: 'string',
+        required: true
     }
 });
 
